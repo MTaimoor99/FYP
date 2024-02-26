@@ -1,0 +1,76 @@
+{% extends 'navbar.html'%}
+{%load static%}
+
+{%block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'ContactUsPageCss.css' %}">
+</head>
+<body>
+    <section>
+    <div class="container">
+        <div class="contactinfo">
+            <div>
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><img src="{% static 'images/icons8-location-50.png' %}" alt="location.png"></span>
+                        <span>College of Electrical <br>
+                            and Mechanical Engineering
+                        </span>
+                    </li>
+                    <li>
+                        <span><img src="{% static 'images/icons8-mail-50.png' %}" alt="mail.com"></span>
+                        <span>tahir.ameer962@gmail.com</span>
+                    </li>
+                    <li>
+                        <span><img src="{% static 'images/icons8-phone-50.png' %}" alt="call.png"></span>
+                        <span>0306-1113411</span>
+                    </li>
+                </ul>
+                <ul class="sci">
+                    <li><a href="#"><img src="{% static 'images/icons8-facebook-24.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'images/icons8-linkedin-24.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'images/icons8-insta-24.png'%}"></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="contactForm">
+            <h2>Send a Message</h2>
+            <div class="formBox">
+                <div class="inputBox w50">
+                    <input type="text" name="" id="">
+                    <span>First Name</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" id="">
+                    <span>Last Name</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" id="">
+                    <span>Email</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" id="">
+                    <span>Mobile Number</span>
+                </div>
+                <div class="inputBox w100">
+                    <textarea name="" id="" required></textarea>
+                    <span>Write your message here...</span>
+                </div>
+                <div class="inputBox w100">
+                    <input type="submit" value="send">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+{%endblock body%}

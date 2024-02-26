@@ -1,0 +1,33 @@
+body{
+    background-color: #C7C8CC;
+}
+
+#history{
+    margin-left: 50%;
+    font-weight: bold;
+}
+
+.col1{
+    background-color: #B4B4B8;
+}
+
+.border-right {
+    border-right: 1px solid #000; /* You can adjust the color and thickness of the border */
+}
+
+.border-bottom {
+    border-bottom: 1px solid #000000; /* Adjust thickness and color as needed */
+    
+}
+
+.div-2{
+    padding-top: 1%;
+    
+}
+
+.Heading{
+    background-color: #747264;
+    font-size: larger;
+    font-weight: bolder;
+    font-style:inherit;
+}

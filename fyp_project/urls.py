@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from web_scraper import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('web_scraper/',include('web_scraper.urls')),
+    path('user_interface/',views.user_interface,name='user_interface'),
+    path('register',views.register,name='register'),
+    path('',views.login,name='login'),
+    path('logout',views.logout_user,name='logout'),
+    path('contact_us',views.contact_us,name='contact_us'),
+    path('about_us',views.about_us,name='about_us'),
+    path('history',views.user_history,name='history')
 ]

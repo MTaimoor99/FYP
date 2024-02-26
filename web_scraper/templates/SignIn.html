@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'SignIn.css'%}">
+    <script src="https://kit.fontawesome.com/d11c321e04.js" crossorigin="anonymous"></script>
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign In</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" placeholder="Email" name="username">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <p>Lost Password <a href="#">Click Here</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" class="disable" id="signinbtn">Sign in</button>
+                </div>
+                {% for message in messages %}
+                <p id="messages">{{message}}</p>
+                {% endfor %}
+            </form>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>

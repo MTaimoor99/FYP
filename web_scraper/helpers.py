@@ -1,4 +1,5 @@
 # A file containing helper functions for our views
+#All these below are needed to run our web scraper
 import time
 import csv
 from selenium import webdriver
@@ -13,15 +14,22 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
+#User login and sign up imports
+from django.contrib.auth.forms import UserCreationForm
+
+def sign_up():
+    pass
+    
+
 def scrape_reviews(product_url):
-    #path='C:\\Users\\92317\\Downloads\\chromedriver-win64\\chromedriver.exe'
-    path = '/usr/bin/chromedriver-linux64/chromedriver'
-    chrome_path='/usr/bin/google-chrome'
+    path='C:\\Users\\92317\\Documents\\7th Semester\\fyp_project\\chromedriver.exe'
+    #path = '/usr/bin/chromedriver-linux64/chromedriver' #Uncomment for Docker
+    #chrome_path='/usr/bin/google-chrome' #Uncomment for Docker
     filename='daraz_reviews.csv'
     #open the browser
     service = Service(executable_path=path)
     options = webdriver.ChromeOptions()
-    options.binary_location=chrome_path
+    #options.binary_location=chrome_path #uncomment for docker
     options.add_argument("start-maximized") #open Browser in maximized mode
     options.add_argument("disable-infobars") # disabling infobars
     options.add_argument("--disable-extensions") # disabling extensions
@@ -48,15 +56,13 @@ def scrape_reviews(product_url):
         dw.writeheader() 
     total_pages=int(WebDriverWait(browser, 60,ignored_exceptions=ignored_exceptions).until(EC.presence_of_element_located((By.XPATH,'(//a[@rel="nofollow"])[last()]'))).text)
     for k in range(0,total_pages):
-        if k==total_pages:
-            break
         element=WebDriverWait(browser, 60,ignored_exceptions=ignored_exceptions).until(EC.presence_of_element_located((By.XPATH,'//div[@class="review-content-sl"]')))
+        if element is None:
+            break
         next_button=WebDriverWait(browser, 60,ignored_exceptions=ignored_exceptions).until(EC.presence_of_element_located((By.XPATH,'(//button[@class="ant-pagination-item-link"])[2]')))
         for i in range(1,4):  
             #input_div=browser.find_element(By.XPATH, f'(//div[@class="content"])[{i}]')
             input_div=WebDriverWait(browser, 60,ignored_exceptions=ignored_exceptions).until(EC.presence_of_element_located((By.XPATH,f'(//div[@class="review-content-sl"])[{i}]')))
-            if input_div.text=="":
-                break
             with open(filename,'a',encoding='utf-8',errors='replace',newline='') as csvfile:
                 csvwriter=csv.writer(csvfile)
                 reviews.append(input_div.text)
