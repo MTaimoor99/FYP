@@ -26,5 +26,6 @@ urlpatterns = [
     path('logout',views.logout_user,name='logout'),
     path('contact_us',views.contact_us,name='contact_us'),
     path('about_us',views.about_us,name='about_us'),
-    path('history',views.user_history,name='history')
+    path('history',views.user_history,name='history'),
+    path('model/', views.call_model.as_view()) #For our ML model
 ]

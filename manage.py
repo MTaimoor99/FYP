@@ -19,4 +19,5 @@ def main():
 
 
 if __name__ == '__main__':
+    from web_scraper.helper_classes import DistilBERTClass #Importing this to load our model correctly
     main()

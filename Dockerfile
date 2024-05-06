@@ -1,4 +1,5 @@
 # Use an official Python runtime as a parent image
+#FROM python:3.12
 FROM python:3.12
 
 # Allows docker to cache installed dependencies between builds
